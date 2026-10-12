@@ -164,7 +164,103 @@ TrainHist = Model.fit(
 
 
 #  11._____TEST ACCURACY :
-trainLoss, trainAccuracy = models.evaluate(test_Gen)
+Test_Loss, Test_Accuracy = model.evaluate(test_Gen)
 
-print("\nTrain Loss :", trainLoss)
-print("Train Accuracy :", trainAccuracy)
+print("\nTest Loss :", Test_Loss)
+print("Test Accuracy :", Test_Accuracy)
+
+
+#  12._____TRAINING ACCURACY AND VALIDATION ACCURACY GRAPH :
+mplt.figure(figsize = (10,5))
+mplt.plot(
+    TrainHist.history["accuracy"],
+    label = "Training Accuracy"
+)
+
+mplt.plot(
+    TrainHist.history["val_accuracy"],
+    label = "Validation Accuracy"
+)
+
+mplt.title("==CNN Taining and Validation Accuracy==")
+mplt.xlabel("--Epochs--")
+mplt.ylabel("--Accuracy--")
+mplt.legend()
+mplt.grid()
+
+mplt.show()
+
+
+#  13._____TAINING LOSS AND VALIDATION LOSS GRAPH :
+mplt.figure(figsize = (10,5))
+mplt.plot(
+    TrainHist.history["loss"],
+    label = "Training Loss"
+)
+
+mplt.plot(
+    TrainHist.history["val_loss"],
+    label = "Validation Loss"
+)
+
+mplt.title("==CNN Training and Validation Loss==")
+mplt.xlabel("--Epochs--")
+mplt.ylabel("--Loss--")
+mplt.legend()
+mplt.grid()
+
+mplt.show()
+
+
+#  14._____PREDICTIONS :
+test_Gen.reset()
+
+Prediction = Model.predict(test_Gen)
+
+PreClass = num.argmax(
+    Prediction, axis = 1
+)
+
+TrueClass = test_Gen.classes
+
+
+#   15._____CLASSIFICATION REPORT :
+
+print ("\n===<>"*3)
+print("\nClassification Report :\n")
+
+print(
+    classification_report(
+        TrueClass,
+        PreClass,
+        target_names= Class_Name
+    )
+)
+
+
+#  16._____CONFUSION MATRIX :
+conf = confusion_matrix(
+    TrueClass,
+    PreClass
+)
+
+mplt.figure(figsize = (10,8))
+
+sb.heatmap(
+    annot = True,
+    fmt = "d",
+    xticklabels = Class_Name,
+    yticklabels = Class_Name
+)
+
+mplt.title("==CNN Confusion Matrix==")
+mplt.xlabel("--Prediction Class--")
+mplt.ylabel("--True Class--")
+
+mplt.show()
+
+
+#  17._____SAVE THE MODEL :
+
+Model.save("Fruit_Classification___CNN")
+print("\n\n Fruit Classification is Saved.")
