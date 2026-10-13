@@ -164,7 +164,7 @@ TrainHist = Model.fit(
 
 
 #  11._____TEST ACCURACY :
-Test_Loss, Test_Accuracy = model.evaluate(test_Gen)
+Test_Loss, Test_Accuracy = Model.evaluate(test_Gen)
 
 print("\nTest Loss :", Test_Loss)
 print("Test Accuracy :", Test_Accuracy)
