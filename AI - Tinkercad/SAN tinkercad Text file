@@ -1,0 +1,76 @@
+"Arduino Uno R3, Breadboard small
+Resistor use LED light and Piezo
+>>> lamping light :"
+
+// C++ code
+//
+void setup()
+{
+  pinMode(8, OUTPUT);
+}
+void loop()
+{
+  digitalWrite(8, HIGH);
+  delay(500); // Wait for 1000 millisecond(s)
+  digitalWrite(8, LOW);
+  delay(500); // Wait for 1000 millisecond(s)
+  digitalWrite(7, HIGH);
+  delay(500); // Wait for 1000 millisecond(s)
+  digitalWrite(7, LOW);
+  delay(500); // Wait for 1000 milliseconds(s)
+}
+"and"
+
+void loop()
+{
+  digitalWrite(8, HIGH);
+  delay(500); // Wait for 1000 millisecond(s)
+  digitalWrite(7, LOW);
+  delay(500); // Wait for 1000 millisecond(s)
+  digitalWrite(8, LOW);
+  delay(500); // Wait for 1000 millisecond(s)
+  digitalWrite(7, HIGH);
+  delay(500); // Wait for 1000 millisecond(s)
+}
+
+
+
+
+
+"Ultrasonic Sencor :"
+// C++ code
+//
+
+int trigPin = 10;
+int echoPin = 9;
+long time;
+float distance;
+
+void setup()
+{
+  pinMode(trigPin, OUTPUT); // SETTING OUTPUT PIN
+  pinMode(echoPin, INPUT); // SETTING INPUT PIN
+  Serial.begin(9600); // INITIALISING THE COMMUNICATION
+}
+
+void loop()
+{
+  digitalWrite(trigPin,LOW);
+  delayMicroseconds(2);
+
+  // transmitting sound for 10 microseconds
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(10, LOW);
+
+  // calculating distance
+  time=pulseIn(echoPin , HIGH);
+  Serial.print("time: ");
+  Serial.println(time);
+  distance = time * 0.0343/2;
+
+  // Printing out the final output => distance
+  Serial.print("Distance:");
+  Serial.println(distance);
+
+}
