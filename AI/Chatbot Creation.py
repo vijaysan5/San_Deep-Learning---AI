@@ -68,3 +68,75 @@ Texts = {
         }
     ]
 }
+
+
+Words = []
+Classes = []
+Documents = []
+
+# >>> Preprocessing <<< :
+for intent in Texts["intents"]:
+    for pattern in intent["patterns"]:
+        tokens = nltk.word_tokenize(pattern.lower())
+        Words.extend(tokens)
+        documents.append((tokens, intent["tag"]))
+
+        if intent["tag"] not in Classes:
+            Classes.append(intent["tag"])
+
+Words = [
+    lemmatizer.lemmatize(w)
+    for w in Words
+    if w.isalnum()
+]
+
+Words = sorted(set(Words))
+Classes = sosrted(set(Classes))
+
+
+# >>> Training <<< :
+Train = []
+for doc in Documents:
+    pack = []
+
+    sentence_words = [
+        lemmatizer.lemmatize(w.lower())
+        for w in doc[0]
+    ]
+
+    for word in Words:
+        pack.append(1 if word in sentence_words else 0)
+
+    Output = [0] * len(Classes)
+    Output[Classes.index(doc[1])] = 1
+
+    Train.append([pack, Output])
+
+random.shuffle(Train)
+
+ab = num.array([item[0] for item in Train])
+xy = num.array([item[0] for item in Train])
+
+
+# >>> ANN Model <<< :
+
+model = Sequential()
+
+model.add(Dense(128, input_shape=(len(X[0]),), activation='relu'))
+model.add(Dropout(0.5))
+
+model.add(Dense(64, activation='relu'))
+model.add(Dropout(0.3))
+
+model.add(Dense(len(Classes), activation='softmax'))
+
+# Compile model
+model.compile(
+    loss='categorical_crossentropy',
+    optimizer=SGD(
+        learning_rate=0.01,
+        momentum=0.9,
+        nesterov=True
+    ),
+    metrics=['accuracy']
+)
