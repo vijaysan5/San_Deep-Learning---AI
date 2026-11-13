@@ -122,7 +122,7 @@ xy = np.array([item[0] for item in Train])
 
 model = Sequential()
 
-model.add(Dense(128, input_shape=(len(X[0]),), activation='relu'))
+model.add(Dense(128, input_shape=(len(ab[0]),), activation='relu'))
 model.add(Dropout(0.5))
 
 model.add(Dense(64, activation='relu'))
@@ -155,4 +155,39 @@ def cbot_res(message):
         if w.isalnum()
     ]
 
-    
+    pack[0] * len(Words)
+
+    for w in tokens:
+        if w in Words:
+            pack[Words.index(w)] = 1
+
+    Predict = model.predict(
+        np.array([pack]), verbose=1
+    )[0]
+
+
+    if Predict < 0.50:
+        return "Sorry, I don't Understand."
+
+    index = np.argmax(Predict)
+    tag = Classes[index]
+
+
+    for intent in Texts["intents"]:
+        if intent["tag"] == tag:
+            return random.choice(intent["responses"])
+
+
+# >>> CHATBOT <<<
+print("\n\n ANN CHATBOT")
+print("Type 'quit' to exit...")
+
+while True:
+    message = input("You :  ")
+
+    if message.lower() == 'quit':
+        print("BOT :  Good bye! See you agian.")
+        break
+
+    Response = cbot_res(message)
+    print("BOT :  ", Response)
