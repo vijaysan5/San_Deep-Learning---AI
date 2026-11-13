@@ -4,7 +4,7 @@ import nltk
 import json
 
 from nltk.stem import WordNetLemmatizer
-from tensorflow.keras.models import squantial
+from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.optimizers import SGD
 
@@ -79,7 +79,7 @@ for intent in Texts["intents"]:
     for pattern in intent["patterns"]:
         tokens = nltk.word_tokenize(pattern.lower())
         Words.extend(tokens)
-        documents.append((tokens, intent["tag"]))
+        Documents.append((tokens, intent["tag"]))
 
         if intent["tag"] not in Classes:
             Classes.append(intent["tag"])
@@ -91,7 +91,7 @@ Words = [
 ]
 
 Words = sorted(set(Words))
-Classes = sosrted(set(Classes))
+Classes = sorted(set(Classes))
 
 
 # >>> Training <<< :
@@ -114,8 +114,8 @@ for doc in Documents:
 
 random.shuffle(Train)
 
-ab = num.array([item[0] for item in Train])
-xy = num.array([item[0] for item in Train])
+ab = np.array([item[0] for item in Train])
+xy = np.array([item[0] for item in Train])
 
 
 # >>> ANN Model <<< :
@@ -140,3 +140,19 @@ model.compile(
     ),
     metrics=['accuracy']
 )
+
+# >>> Train chatbot <<<
+model.fit(ab, xy, epochs=200, batch_size=5, verbose=1)
+
+
+# >>> Chatbot Response Function <<<
+def cbot_res(message):
+    tokens = nltk.word_tokenize(message.lower())
+
+    tokens = [
+        lemmatizer.lemmatize(w)
+        for w in tokens
+        if w.isalnum()
+    ]
+
+    
