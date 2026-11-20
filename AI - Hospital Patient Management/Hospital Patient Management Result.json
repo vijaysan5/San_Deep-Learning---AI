@@ -1,0 +1,141 @@
+{
+    "generated_at": "2026-11-20T23:25:54",
+    "patient": {
+        "name": "xxxxx",
+        "age": 57,
+        "gender": "male",
+        "symptoms": [
+            "chest pain",
+            "headache"
+        ],
+        "preferred_department": "cardiology",
+        "annual_budget_inr": 500.0
+    },
+    "recommendations": [
+        {
+            "department_id": "CARDIO",
+            "department_name": "Cardiology",
+            "specialization": "Heart and Blood Vessel Care",
+            "description": "Provides diagnosis and treatment for heart-related conditions.",
+            "common_symptoms": [
+                "chest pain",
+                "shortness of breath",
+                "irregular heartbeat",
+                "dizziness"
+            ],
+            "services": [
+                "ECG",
+                "Echocardiogram",
+                "Heart Monitoring"
+            ],
+            "score": 69.4,
+            "symptom_matches": [
+                "chest pain"
+            ],
+            "preferred_department_match": true,
+            "consultation_fee": 800,
+            "within_budget": false,
+            "doctors_available": 5,
+            "availability_status": "Doctors available"
+        },
+        {
+            "department_id": "NEURO",
+            "department_name": "Neurology",
+            "specialization": "Brain and Nervous System",
+            "description": "Focuses on disorders affecting the brain and nervous system.",
+            "common_symptoms": [
+                "headache",
+                "migraine",
+                "memory problems",
+                "numbness"
+            ],
+            "services": [
+                "EEG",
+                "Brain MRI",
+                "Nerve Testing"
+            ],
+            "score": 45.7,
+            "symptom_matches": [
+                "headache"
+            ],
+            "preferred_department_match": false,
+            "consultation_fee": 700,
+            "within_budget": false,
+            "doctors_available": 4,
+            "availability_status": "Doctors available"
+        },
+        {
+            "department_id": "DERMA",
+            "department_name": "Dermatology",
+            "specialization": "Skin and Hair Care",
+            "description": "Provides diagnosis and treatment for skin, hair and nail conditions.",
+            "common_symptoms": [
+                "skin rashes",
+                "acne",
+                "hair loss",
+                "itching"
+            ],
+            "services": [
+                "Skin Examination",
+                "Allergy Testing",
+                "Hair Treatment"
+            ],
+            "score": 25,
+            "symptom_matches": [],
+            "preferred_department_match": false,
+            "consultation_fee": 500,
+            "within_budget": true,
+            "doctors_available": 3,
+            "availability_status": "Doctors available"
+        },
+        {
+            "department_id": "ENT",
+            "department_name": "ENT Department",
+            "specialization": "Ear, Nose and Throat",
+            "description": "Treats conditions related to the ear, nose and throat.",
+            "common_symptoms": [
+                "ear pain",
+                "hearing loss",
+                "sinus problems",
+                "throat pain"
+            ],
+            "services": [
+                "Hearing Test",
+                "Nasal Examination",
+                "Throat Examination"
+            ],
+            "score": 23.6,
+            "symptom_matches": [],
+            "preferred_department_match": false,
+            "consultation_fee": 550,
+            "within_budget": false,
+            "doctors_available": 4,
+            "availability_status": "Doctors available"
+        },
+        {
+            "department_id": "ORTHO",
+            "department_name": "Orthopedics",
+            "specialization": "Bones and Joints",
+            "description": "Provides treatment for bone, joint and muscle conditions.",
+            "common_symptoms": [
+                "joint pain",
+                "back pain",
+                "bone fracture",
+                "muscle pain"
+            ],
+            "services": [
+                "X-Ray",
+                "Bone Scanning",
+                "Physiotherapy"
+            ],
+            "score": 22.5,
+            "symptom_matches": [],
+            "preferred_department_match": false,
+            "consultation_fee": 600,
+            "within_budget": false,
+            "doctors_available": 6,
+            "availability_status": "Doctors available"
+        }
+    ],
+    "disclaimer": "This is an educational department recommendation prototype, not a medical diagnosis. Consult a qualified healthcare professional. Actual doctor availability and fees must be verified with the hospital."
+}

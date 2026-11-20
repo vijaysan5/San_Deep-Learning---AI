@@ -1,0 +1,102 @@
+{
+  "project": "Hospital Patient Management AI",
+  "version": "1.0",
+  "note": "Illustrative sample data only. Medical decisions must be made by qualified healthcare professionals.",
+  "departments": [
+    {
+      "id": "CARDIO",
+      "name": "Cardiology",
+      "specialization": "Heart and Blood Vessel Care",
+      "doctors_available": 5,
+      "consultation_fee": 800,
+      "common_symptoms": [
+        "chest pain",
+        "shortness of breath",
+        "irregular heartbeat",
+        "dizziness"
+      ],
+      "services": [
+        "ECG",
+        "Echocardiogram",
+        "Heart Monitoring"
+      ],
+      "description": "Provides diagnosis and treatment for heart-related conditions."
+    },
+    {
+      "id": "NEURO",
+      "name": "Neurology",
+      "specialization": "Brain and Nervous System",
+      "doctors_available": 4,
+      "consultation_fee": 700,
+      "common_symptoms": [
+        "headache",
+        "migraine",
+        "memory problems",
+        "numbness"
+      ],
+      "services": [
+        "EEG",
+        "Brain MRI",
+        "Nerve Testing"
+      ],
+      "description": "Focuses on disorders affecting the brain and nervous system."
+    },
+    {
+      "id": "ORTHO",
+      "name": "Orthopedics",
+      "specialization": "Bones and Joints",
+      "doctors_available": 6,
+      "consultation_fee": 600,
+      "common_symptoms": [
+        "joint pain",
+        "back pain",
+        "bone fracture",
+        "muscle pain"
+      ],
+      "services": [
+        "X-Ray",
+        "Bone Scanning",
+        "Physiotherapy"
+      ],
+      "description": "Provides treatment for bone, joint and muscle conditions."
+    },
+    {
+      "id": "DERMA",
+      "name": "Dermatology",
+      "specialization": "Skin and Hair Care",
+      "doctors_available": 3,
+      "consultation_fee": 500,
+      "common_symptoms": [
+        "skin rashes",
+        "acne",
+        "hair loss",
+        "itching"
+      ],
+      "services": [
+        "Skin Examination",
+        "Allergy Testing",
+        "Hair Treatment"
+      ],
+      "description": "Provides diagnosis and treatment for skin, hair and nail conditions."
+    },
+    {
+      "id": "ENT",
+      "name": "ENT Department",
+      "specialization": "Ear, Nose and Throat",
+      "doctors_available": 4,
+      "consultation_fee": 550,
+      "common_symptoms": [
+        "ear pain",
+        "hearing loss",
+        "sinus problems",
+        "throat pain"
+      ],
+      "services": [
+        "Hearing Test",
+        "Nasal Examination",
+        "Throat Examination"
+      ],
+      "description": "Treats conditions related to the ear, nose and throat."
+    }
+  ]
+}
